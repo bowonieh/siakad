@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit ('No Direct Script Access Allowed');
-
+//class rpendidikan author agus wibowo
 class Rpendidikan extends CI_Controller {
 	
 	function __construct()
