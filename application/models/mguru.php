@@ -186,7 +186,7 @@ class Mguru extends CI_Model
    }
    function siswamapel($id_mapel){
        $this->db->where(array('id_mapel'=>$id_mapel));
-       $this->db->order_by('kelas.nama_kelas','asc');
+       $this->db->order_by('siswa.nis','asc');
        $this->db->join('siswa','siswa.nis=mapel_ambil.nis','inner');
        $this->db->join('kelas','siswa.id_kelas=kelas.id_kelas','inner');
        $ambil = $this->db->get('mapel_ambil');
