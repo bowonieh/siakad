@@ -11,12 +11,15 @@ class Keluarga extends CI_Controller {
             
         }
         function index(){
+            if ($this->session->userdata('username',TRUE) && $this->session->userdata('remote_ip',TRUE) && $this->session->userdata('password',TRUE) && $this->session->userdata['level']=='2'){
             $username = $this->session->userdata('username');
             $data['isi']= $this->mkeluarga->getKeluargaGuru_($username);
             $this->load->view('utama/header');
             $this->load->view('keluarga/datakeluarga',$data);
             $this->load->view('utama/footer');
-            
+            }else{
+                redirect('user','refresh');
+            }
             
         }
         function tambah(){
@@ -74,7 +77,51 @@ class Keluarga extends CI_Controller {
                 redirect('user','refresh');
             }
         }
-        
+        function update(){
+             $id = $this->uri->segment(3);
+             $username = $this->session->userdata('username');
+             if($this->session->userdata('username',TRUE) && $this->session->userdata('password',TRUE) && $this->session->userdata('level',TRUE) && $this->session->userdata('level')=='2'){
+                if(!$this->mkeluarga->cek($id,$username)){
+                    redirect('keluarga','refresh');
+                }else{
+                    //jika berhasil
+                    $data['isi'] = $this->mkeluarga->detilKeluarga($id);
+                    $rules = array(
+                                array(
+                                     'field'=>'nama_lengkap',
+                                     'label'=> 'NAMA LENGKAP',
+                                        'rules'=>'required|xss_clean'
+                                ),
+                                array(
+                                    'field'=>'hubungan_keluarga',
+                                    'label'=>'Hubungan Keluarga',
+                                    'rules'=>'required'
+                                    )
+                         );
+                            $this->form_validation->set_error_delimiters('<div class="alert alertbox" data-toggle="modal">', '</div>');
+                            $this->form_validation->set_rules($rules);
+                            if ($this->form_validation->run() == FALSE)
+                         {
+                
+                        $this->load->view('utama/header');
+                        $this->load->view('keluarga/editkeluarga',$data);
+                        $this->load->view('utama/footer');
+                    }else{
+                    //$this->mpendidikan->tambah();
+                    $this->mkeluarga->update();
+                    redirect('keluarga','refresh');
+                    //$data['sukses'] = "Sukses";
+                    //$this->load->view('utama/header');
+                    //$this->load->view('pendidikan/editpendidikan',$data);
+                    //$this->load->view('utama/footer');
+                
+                    }
+                    
+                    }
+            }else{
+                redirect('user','refresh');
+            }
+         }
 
         
         }

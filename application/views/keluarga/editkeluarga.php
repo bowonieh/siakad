@@ -92,46 +92,62 @@
       <!-- Start: PRODUCT LIST -->
         <div class="container">
           <div class="page-header">
-            <h2>Data Keluarga</h2>
-            <a class="modalbox" href="<?php echo base_url();?>index.php/keluarga/tambah"><button class="btn btn-primary">Tambah</button></a>
+            <h2>Update Data Keluarga : <?php echo $isi->nama_lengkap;?></h2>
           </div>
           <div class="row-fluid">
+              <div class="breadcrumb span8"><a href="<?php echo base_url();?>">HOME</a><i class="icon-arrow-right"></i><a href="<?php echo base_url();?>index.php/keluarga">Keluarga</a><i class="icon-arrow-right"></i>Update Keluarga</div> 
             <ul class="thumbnails">
-                
+                 
                 <li class="span8">
-                    <table class="table table-hover table-bordered table-striped" id="t11">
-                        <thead>
-                        <th>NO</th>
-                        <th>Nama Lengkap</th>
-                        <th>Hubungan Keluarga</th>
-                        <th>Aksi</th>
-                        </thead>
-                        <tbody>
-                    <?php
-                    if(empty($isi)){
+                    <?php 
+                    if(!empty($sukses)){
                         ?>
-                            
-                        <div class="alert alert-info">Data Keluarga Kosong</div>
-                            <?php 
-                        
-                    }else{
-                    $no = 1;
-                    foreach($isi as $bb){
-                        ?>
-                            <tr>
-                                <td style="width: 10px;"><?php echo $no++;?></td>
-                                <td><?php echo $bb->nama_lengkap;?></td>
-                                <td><?php echo $bb->hubungan_keluarga;?></td>
-                                <td><a href="<?php echo base_url();?>index.php/keluarga/hapuskeluarga/<?php echo $bb->id_keluarga;?>"><button class="btn btn-danger"><i class="icon-trash"></i> Hapus</button></a>  <a href="<?php echo base_url();?>index.php/keluarga/update/<?php echo $bb->id_keluarga;?>"><button class="btn btn-primary"><i class="icon-edit"></i> Edit</button></a></td>
-                            </tr>
-                    <?php
-                    }
+                    <div class="alert alert-success">Data Berhasil di Updaten</div>
+                    <?php 
                     }
                     ?>
-                        
-                    </tbody>
-                        </table>
+                    <?php echo form_open('','class="form-horizontal"');?>
+                    <div class="form-group">
+                     
+                    <label class="control-label" for="input01">Nama Lengkap <font color="red">*</font></label>
+                    <div class="controls">  
+                    <input type="text" class="input-xlarge" id="input01" name="nama_lengkap" value="<?php echo $isi->nama_lengkap;?>"/>
+                    <input type="hidden" name="id_user" value="<?php echo $isi->id_user;?>"/>
+                    <input type="hidden" name="id_keluarga" value="<?php echo $isi->id_keluarga;?>"/>
+                    </p>
+                    </div>
+                    <label class="control-label" for="input01">Hubungan Keluarga <font color="red">*</font></label>
+                    <div class="controls">  
+                        <select name="hubungan_keluarga">
+                            <option>Pilih</option>
+                            <option value="Ayah Kandung" <?php if($isi->hubungan_keluarga==='Ayah Kandung'){echo "selected";}?>>Ayah Kandung</option>
+                            <option value="Ibu Kandung" <?php if($isi->hubungan_keluarga==='Ibu Kandung'){echo "selected";}?>>Ibu Kandung</option>
+                            <option value="Suami" <?php if($isi->hubungan_keluarga==='Suami'){echo "selected";}?>>Suami</option>
+                            <option value="Istri" <?php if($isi->hubungan_keluarga==='Istri'){echo "selected";}?>>Istri</option>
+                            <option value="Ayah Tiri" <?php if($isi->hubungan_keluarga==='Ayah Tiri'){echo "selected";}?>>Ayah Tiri</option>
+                            <option value="Ibu Tiri" <?php if($isi->hubungan_keluarga==='Ibu Tiri'){echo "selected";}?>>Ibu Tiri</option>
+                            <option value="Kakek" <?php if($isi->hubungan_keluarga==='Kakek'){echo "selected";}?>>Kakek</option>
+                            <option value="Nenek" <?php if($isi->hubungan_keluarga==='Nenek'){echo "selected";}?>>Nenek</option>
+                            <option value="Anak Kandung" <?php if($isi->hubungan_keluarga==='Anak Kandung'){echo "selected";}?>>Anak Kandung</option>
+                            <option value="Anak Tiri" <?php if($isi->hubungan_keluarga==='Anak Tiri'){echo "selected";}?>>Anak Tiri</option>
+                            <option value="Kakak" <?php if($isi->hubungan_keluarga==='Kakak'){echo "selected";}?>>Kakak</option>
+                            <option value="Adik" <?php if($isi->hubungan_keluarga==='Adik'){echo "selected";}?>>Adik</option>
+                            
+                        </select>
+                    </p>
+                    </div>
                     
+                    
+                    <div class="form-actions">  
+                        <button type="submit" class="btn btn-primary" >Simpan</button>  
+                        <a href="<?php echo base_url();?>index.php/keluarga"><button class="btn" type="button">Batal</button>  </a>
+                    </div>
+                    </div>
+                    
+                    
+                    
+                    <?php echo form_close();?>
+                    <?php echo validation_errors();?>
                 </li>
               <!-- <li class="span4">
                 <div class="thumbnail">
@@ -168,7 +184,7 @@
                     </p>
                   </div>
                 </div>
-              </li>-->
+              </li>--><!--
               <li class="span4">
                   
                 <div class="thumbnail">
@@ -197,7 +213,7 @@
                 
               
             </ul>
-          </div>
+          </div>-->
         </div>
       <!-- End: PRODUCT LIST -->
     </div>
