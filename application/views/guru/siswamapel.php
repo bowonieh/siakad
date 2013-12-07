@@ -98,6 +98,7 @@
             <ul class="thumbnails">
                 
                 <li class="span8">
+                    <a href="<?php echo base_url();?>index.php/excel/nilai/<?php echo $this->uri->segment(3);?>"><button class="btn btn-primary"><i class="icon-save"></i> Download</button></a>
                 <?php 
                 if (empty($isi)){
                     
