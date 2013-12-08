@@ -158,7 +158,7 @@ class Msiswa extends CI_Model
       $ambil = $this->db->get('mapel_ambil');
       //$ambil = $this->db->get('tahun');
       return $ambil->result_array();
-      
+      //return $ambil;
   }
   function getdetilsiswa($nis){
       $this->db->where(array('nis'=>$nis));
@@ -166,7 +166,12 @@ class Msiswa extends CI_Model
       $ambil = $this->db->get('siswa');
       return  $ambil->result_array();
   }
-
+  function detilsiswa($nis){
+      $this->db->where(array('nis'=>$nis));
+      $this->db->join('kelas', 'kelas.id_kelas = siswa.id_kelas');
+      $ambil = $this->db->get('siswa');
+      return  $ambil;
+  }
   function tambahabsensi(){
       $nis = $this->input->post('nis');
       $tanggal = $this->input->post('tanggal');

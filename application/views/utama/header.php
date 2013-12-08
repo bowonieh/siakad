@@ -31,7 +31,7 @@ $( "#datepicker" ).datepicker({dateFormat:'yy-mm-dd'});
     <header>
         <?php if ($this->session->userdata('level')==='1'){
             ?>
-            <div class="navbar navbar-fixed-top">
+            <div class="navbar navbar-static-top">
         <div class="navbar-inner">
           <div class="container">
               <span class="row">
@@ -100,7 +100,7 @@ $( "#datepicker" ).datepicker({dateFormat:'yy-mm-dd'});
             $walas = $this->mguru->getidguru($id);
             $id_kelas = $walas->row('id_kelas');
         ?>
-             <div class="navbar navbar-fixed-top">
+             <div class="navbar navbar-static-top">
         <div class="navbar-inner">
           <div class="container">
             <span class="row">
@@ -186,7 +186,7 @@ $( "#datepicker" ).datepicker({dateFormat:'yy-mm-dd'});
         }elseif($this->session->userdata('level')==7){
             ?>
 
-        <div class="navbar navbar-fixed-top">
+        <div class="navbar navbar-static-top">
         <div class="navbar-inner">
           <div class="container">
               <span class="span8">
@@ -250,7 +250,7 @@ $( "#datepicker" ).datepicker({dateFormat:'yy-mm-dd'});
         }elseif($this->session->userdata('level')==='10'){
             
             ?>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-static-top">
         <div class="navbar-inner">
           <div class="container">
             <a href="<?php echo base_url();?>index.php/user" class="brand brand-bootbus">SIAKAD V1.2</a>

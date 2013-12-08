@@ -14,7 +14,7 @@
                         <tr><td>NIP</td><td>:</td><td><input type="text" name="nip" value="<?php echo $isi->nip;?>" class="input-xlarge"/></td></tr>
                         <tr><td>Golongan Jabatan</td><td>:</td><td><input type="text" name="gol" value="<?php echo $isi->gol;?>" class="input-small"/></td></tr>
                         <tr><td>NUPTK</td><td>:</td><td><input type="text" name="nuptk" class="input-xlarge" value="<?php echo $isi->nuptk;?>"/></td></tr>
-                        <tr><td>Tempat Tanggal Lahir</td><td>:</td><td><input type="text" name="tempat" value="<?php echo $isi->tempat;?>" class="input-medium"/>, <input type="text" name="tgl_lahir" class="input-medium" value="<?php echo $isi->tgl_lahir;?>"/></td></tr>
+                        <tr><td>Tempat Tanggal Lahir</td><td>:</td><td><input type="text" name="tempat" value="<?php echo $isi->tempat;?>" class="input-medium"/>, <input type="text" name="tgl_lahir" id="datepicker" class="input-medium" value="<?php echo $isi->tgl_lahir;?>"/></td></tr>
                         <tr><td>Alamat</td><td>:</td><td>
                                 <textarea name="alamat" class="textarea form-inline" >
                                 <?php echo $isi->alamat;?>
@@ -22,7 +22,7 @@
                             
                             </td></tr>
                         <tr><td>Email</td><td>:</td><td><input name="email" type="text" value="<?php echo $isi->email;?>"/></td></tr>
-                        <tr><td>TMT</td><td>:</td><td><input type="text" name="tmt" value="<?php echo $isi->tmt;?>" class="input-medium"/></td></tr>
+                        <tr><td>TMT</td><td>:</td><td><input type="text" id="datepicker" name="tmt" value="<?php echo $isi->tmt;?>" class="input-medium"/></td></tr>
                      
                     
                     

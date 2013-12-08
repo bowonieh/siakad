@@ -527,7 +527,9 @@ function gethasilbelajar(){
     
     $no = 1;
     if(!empty($data)){
-        echo '<span class="span12"><legend>Arsip Nilai Siswa  </legend></p><table class="table table-striped table-bordered" id="t11">
+        echo '<span class="span12"><legend>Nilai Siswa  </legend></p>
+            <a href='.base_url().'index.php/pdf/pdfnilai/'.$id_tahun.'><button class="btn btn-primary">Download</button></a></p>
+            <table class="table table-striped table-bordered" id="t11">
             <tr><th>NO</th><th>Mata Pelajaran</th><th>Nilai UTS</th><th>Terbilang</th><th>NILAI RAPORT</th><th>Terbilang</th></tr>';
         foreach ($data as $dt){
             echo '<tr><td>'.$no++.'</td><td>'.$dt['mapel'].'</td><td>'.$dt['nilai_uts'].'</td><td>'.terbilang($dt['nilai_uts']).'</td><td>'.$dt['nilai_raport'].'</td></td><td>'.terbilang($dt['nilai_raport']).'</td></tr>';
@@ -535,7 +537,7 @@ function gethasilbelajar(){
         echo '</table></span>';
        
     }else{
-        echo '<span class="span8"><div class="alert">Data Kosong</div></span>';
+        echo '</p><span class="span8"><div class="alert">Data Kosong</div></span>';
     }
     
     //echo $ss2;

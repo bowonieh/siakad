@@ -326,7 +326,7 @@ footer {
 }
 @media (min-width: 1200px) {
   body {
-    padding-top: 170px;
+    padding-top: 0px;
   }
 }
 /* End : Responsive CSS section */
